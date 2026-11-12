@@ -1,1 +1,1 @@
-import type {MetadataRoute} from "next";export default function robots():MetadataRoute.Robots{return {rules:{userAgent:"*",allow:"/"},sitemap:"https://apple-school-demo.vercel.app/sitemap.xml"}}
+import type {MetadataRoute} from "next";export default function robots():MetadataRoute.Robots{const host=process.env.VERCEL_PROJECT_PRODUCTION_URL??process.env.VERCEL_URL??"example.com";const base=host.startsWith("http")?host:"https://"+host;return {rules:{userAgent:"*",allow:"/"},sitemap:base+"/sitemap.xml"}}
